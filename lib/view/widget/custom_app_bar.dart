@@ -6,15 +6,18 @@ class CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: const [
-        Text(
-          'My Notes',
-          style: TextStyle(fontSize: 28),
-        ),
-        CustomIcon(),
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 15),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: const [
+          Text(
+            'My Notes',
+            style: TextStyle(fontSize: 28),
+          ),
+          CustomIcon(),
+        ],
+      ),
     );
   }
 }

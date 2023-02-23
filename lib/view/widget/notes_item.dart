@@ -7,7 +7,7 @@ class NotesItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 16),
+      padding: const EdgeInsets.only(bottom: 10),
       child: Container(
         padding: const EdgeInsets.only(top: 20, left: 16, bottom: 20),
         decoration: BoxDecoration(
@@ -39,7 +39,7 @@ class NotesItem extends StatelessWidget {
                 icon: const Icon(
                   FontAwesomeIcons.trash,
                   color: Colors.black,
-                  size: 26,
+                  size: 20,
                 ),
               ),
             ),
