@@ -1,10 +1,9 @@
 # my_notes
 
 A new Flutter project.
-1.add note
-2.edite note
-3.use hive to save note
-
+1. add note
+2. edite note
+3. use hive flutter
 ## Getting Started
 
 This project is a starting point for a Flutter application.
