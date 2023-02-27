@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_notes/view/widget/custom_buttom.dart';
+import 'package:my_notes/constant.dart';
+import 'package:my_notes/view/widget/custom_bottom.dart';
 import 'package:my_notes/view/widget/custom_text_field.dart';
 
 class CustomBottomSheet extends StatelessWidget {
@@ -26,9 +27,11 @@ class AddNoteForm extends StatefulWidget {
 }
 
 class _AddNoteFormState extends State<AddNoteForm> {
+  /*+*/
   final GlobalKey<FormState> formKey = GlobalKey();
   AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
   String? title, subTitle;
+  /*-*/
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -42,9 +45,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
             },
             hitText: 'Title',
           ),
-          const SizedBox(
-            height: 18,
-          ),
+          18.ph,
           CustomTextField(
             onSaved: (value) {
               subTitle = value;
@@ -52,9 +53,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
             hitText: 'Content',
             maxLine: 5,
           ),
-          const SizedBox(
-            height: 64,
-          ),
+          64.ph,
           CustomButton(
             onTap: () {
               if (formKey.currentState!.validate()) {
@@ -65,9 +64,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
               }
             },
           ),
-          const SizedBox(
-            height: 16,
-          ),
+          20.ph,
         ],
       ),
     );
