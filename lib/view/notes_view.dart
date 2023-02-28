@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_notes/cubit/notes_cubit/notes_cubit.dart';
 import 'package:my_notes/view/widget/custom_app_bar.dart';
 import 'package:my_notes/view/widget/custom_bottom_sheet.dart';
 import 'package:my_notes/view/widget/notes_list_view.dart';
@@ -8,31 +10,34 @@ class NotesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          showModalBottomSheet(
-              isScrollControlled: true,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16),
+    return BlocProvider(
+      create: (context) => NotesCubit(),
+      child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            showModalBottomSheet(
+                isScrollControlled: true,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                context: context,
+                builder: (context) {
+                  return const AddNoteBottomSheet();
+                });
+          },
+          child: const Icon(Icons.add),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.only(top: 30, left: 20, right: 20),
+          child: Column(
+            children: const [
+              CustomAppBar(
+                title: 'My Notes',
+                icon: Icons.search_rounded,
               ),
-              context: context,
-              builder: (context) {
-                return const AddNoteBottomSheet();
-              });
-        },
-        child: const Icon(Icons.add),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 30, left: 20, right: 20),
-        child: Column(
-          children: const [
-            CustomAppBar(
-              title: 'My Notes',
-              icon: Icons.search_rounded,
-            ),
-            NotesListView(),
-          ],
+              NotesListView(),
+            ],
+          ),
         ),
       ),
     );
