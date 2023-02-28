@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:my_notes/models/note_model.dart';
 import 'package:my_notes/view/edit_note.dart';
 
 class NotesItem extends StatelessWidget {
-  const NotesItem({Key? key}) : super(key: key);
-
+  const NotesItem({Key? key, required this.notes}) : super(key: key);
+  final NoteModel notes;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -22,14 +23,14 @@ class NotesItem extends StatelessWidget {
           padding: const EdgeInsets.only(top: 20, left: 16, bottom: 20),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
-              color: const Color(0xffFFCC80)),
+              color: Color(notes.color)),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               ListTile(
-                title: const Text(
-                  'My first note',
-                  style: TextStyle(
+                title: Text(
+                  notes.title,
+                  style: const TextStyle(
                     fontSize: 28,
                     color: Colors.black,
                   ),
@@ -37,7 +38,7 @@ class NotesItem extends StatelessWidget {
                 subtitle: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   child: Text(
-                    'This is my first note on My Notes',
+                    notes.subTitle,
                     style: TextStyle(
                       fontSize: 18,
                       color: Colors.black.withOpacity(0.5),
@@ -56,7 +57,7 @@ class NotesItem extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(right: 16),
                 child: Text(
-                  'feb32, 2023',
+                  notes.date,
                   style: TextStyle(
                     // fontSize: 28,
                     color: Colors.black.withOpacity(0.5),
