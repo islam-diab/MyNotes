@@ -5,6 +5,7 @@ import 'package:my_notes/constant.dart';
 import 'package:my_notes/cubit/add_note_cubit/add_note_cubit.dart';
 import 'package:my_notes/models/note_model.dart';
 
+import 'color_list_view.dart';
 import 'custom_bottom.dart';
 import 'custom_text_field.dart';
 
@@ -45,6 +46,8 @@ class _AddNoteFormState extends State<AddNoteForm> {
             hitText: 'Content',
             maxLine: 5,
           ),
+          32.ph,
+          const ColorsListView(),
           64.ph,
           BlocBuilder<AddNoteCubit, AddNoteState>(
             builder: (context, state) {
